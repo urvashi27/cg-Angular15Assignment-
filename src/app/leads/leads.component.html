@@ -1,0 +1,24 @@
+<p class="mx-4 mt-2"><b>New Leads</b></p>
+<div class="container-fluid" style="background-color:white">
+    <div class="row justify-content-end">
+       
+        <div class="col-md-2 mb-2">
+            <button type="button" class="btn btn-primary" [routerLink]="['q/cgprotectform']">Add new Lead</button>
+        </div>
+    </div>
+    <div class="row m-1">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+              <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+              <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+          </table>
+          
+          
+          
+    </div>
+
+</div>

@@ -1,0 +1,51 @@
+
+ 
+
+
+    <mat-sidenav-container class="example-container" autosize> 
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list>
+            <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+			<mat-list-item  class="parent">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Parent Menu</span>
+				<mat-icon mat-list-icon>home</mat-icon>
+				
+			</mat-list-item>
+			<mat-list-item  class="parent">
+				<mat-icon>shopping_cart</mat-icon>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon>dashboard</mat-icon>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon>question_answer</mat-icon>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon>task_alt</mat-icon>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon>article</mat-icon>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon>perm_identity</mat-icon>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon>exit_to_app</mat-icon>
+			</mat-list-item>
+		
+		</mat-nav-list>
+	
+    <mat-nav-list>
+	
+</mat-nav-list>
+</mat-sidenav>
+
+	<div class="example-sidenav-content">
+         
+      
+        <router-outlet name="sidebar"></router-outlet> 
+		<app-leads></app-leads>
+	</div>
+</mat-sidenav-container>    
+
+

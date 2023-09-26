@@ -1,0 +1,208 @@
+<div class="container">
+   <div class="row">
+  <h3><b>CG Protect Form</b></h3>
+  </div>
+<mat-horizontal-stepper #stepper>
+ 
+    
+  
+    <mat-step [stepControl]="personalDetailsFormGroup">
+      <form [formGroup]="personalDetailsFormGroup">
+        <div class="row mt-4">
+          <div class="col-md-6">
+        <ng-template matStepLabel>Personal Details</ng-template>
+        <label class="form-label requiredError">First Name</label>
+      
+          <input class="form-control" placeholder="First name" formControlName="firstName" required>
+       
+        </div>
+        <div class="col-md-6">
+          <label class="form-label requiredError">Last Name</label>
+            <input  class="form-control" placeholder="last name" formControlName="lastName" required>
+          
+        </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+      
+        <label class="form-label requiredError">Phone Number</label>
+      
+          <input class="form-control" placeholder="1234567654" formControlName="phoneNumber" required>
+       
+        </div>
+        <div class="col-md-6">
+          <label class="form-label requiredError">Email Address</label>
+            <input  class="form-control" placeholder="abc@gmail.com" formControlName="email" required>
+          
+        </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+      
+        <label class="form-label requiredError">Date of birth</label>
+      
+          <input class="form-control"  formControlName="dob" required>
+       
+        </div>
+        <div class="col-md-6">
+          <label class="form-label requiredError">Pincode</label>
+            <input  class="form-control"  formControlName="pincode" required>
+          
+        </div>
+        </div>
+        <div class="row mt-4">
+          <label class="form-label requiredError">Gender</label>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="transgender">Transgender</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-6 ">
+          <label class="form-label requiredError">Do you smoke?</label><br>
+          <button class="m-2" mat-raised-button color="primary">Yes</button>
+          <button mat-raised-button color="primary">No</button>
+          </div>
+          <div class="col-md-6 ">
+            <label class="form-label requiredError">Do you consume alchohol?</label><br>
+            <button class="m-2" mat-raised-button color="primary">Yes</button>
+            <button mat-raised-button color="primary">No</button>
+            </div>
+
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <label class="form-label requiredError">Address</label>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+          </div>
+       
+          
+          </div>
+        
+        <footer class="d-flex mt-2">
+          <div class="me-auto p-2 bd-highlight"><button mat-button mat-raised-button  matStepperPrevious>Back</button></div>
+          
+          <div class="p-2 bd-highlight"><button mat-raised-button matStepperNext  mat-button>Next</button></div>
+        </footer>
+      </form>
+    
+    </mat-step>
+    <mat-step [stepControl]="incomeDetailsFormGroup">
+      <form [formGroup]="incomeDetailsFormGroup">
+        <ng-template matStepLabel>Income Details</ng-template>
+        <div class="row mt-4">
+          <div class="col-md-6">
+      
+        <label class="form-label requiredError">Annual Income Date</label>
+      
+          <input class="form-control"  formControlName="annualIncomeDate" required>
+       
+        </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+      
+            <label class="form-label requiredError">Government Rebate</label>
+          
+              <input class="form-control"  formControlName="govtRebate" required>
+           
+            </div>
+        </div>
+        <div class="col-md-6">
+      
+          <label class="form-label requiredError">Tax Rebate</label>
+        
+            <input class="form-control"  formControlName="taxRebate" required>
+         
+          </div>
+          <footer class="d-flex mt-2">
+            <div class="me-auto p-2 bd-highlight"><button mat-button mat-raised-button  matStepperPrevious>Back</button></div>
+            
+            <div class="p-2 bd-highlight"><button mat-raised-button matStepperNext  mat-button>Next</button></div>
+          </footer>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="documentsFormGroup">
+        <form [formGroup]="documentsFormGroup">
+          <ng-template matStepLabel>Documents</ng-template>
+           <h3>Your Proof</h3>
+           <div class="row">
+            <div class="col-md-6"><p>Upload Identity Proof</p>
+              <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+
+	<mat-card>
+		<div class="drag-file-area">
+      <div class="image-upload" >
+      <label  for="file-input">
+      <span class="material-icons-outlined upload-icon">
+        perm_media 
+        </span>
+      
+        <input type="file" formControlName="identityProof" (change)="handleFileInput($event,'identity')" id="file-input"/>
+       
+      </label>
+        </div>
+			<h5> Upload Image from gallery </h5>
+			<label class="label">    </label>
+		</div>
+    <div>
+		<span>{{this.identityProofImag}}</span>
+    </div>
+	
+		
+</mat-card>
+  </div>
+
+            
+
+            <div class="col-md-6"><p>Upload Financial Proof</p>
+              <mat-card>
+                <div class="drag-file-area">
+                  <div class="image-upload">
+                  <label  for="file-input">
+                  <span class="material-icons-outlined upload-icon">
+                    perm_media 
+                    </span>
+                   
+                    <input type="file" formControlName="financialProof" (change)="handleFileInput($event,'financial')" id="file-input"/>
+                  
+                  </label>
+                    </div>
+                  <h5> Upload Image from gallery </h5>
+                  <label class="label">    </label>
+                </div>
+                <div>
+               <span>{{this.financialProofImage}}</span>
+               </div>
+              
+               
+            </mat-card>
+          </div>
+          </div>
+          <footer class="d-flex mt-2">
+            <div class="me-auto p-2 bd-highlight"><button mat-button mat-raised-button  matStepperPrevious>Back</button></div>
+            
+            <div class="p-2 bd-highlight"><button mat-raised-button matStepperNext  mat-button>Next</button></div>
+          </footer>
+        </form>
+      </mat-step>
+    <mat-step [completed]="completed" [state]="state">
+      <ng-template matStepLabel>Quotation</ng-template>
+     <mat-card>
+      <div class="row"></div>
+     </mat-card>
+     <mat-card>
+     
+     </mat-card>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="submit()">Submit</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+
+ 
+  </div>

@@ -1,0 +1,22 @@
+<p>todos works!</p>
+<table>
+    <tr>
+        <th>
+            Todo Name
+        </th>
+        <th>
+           ID
+        </th>
+        <th>
+           <button>Action</button>
+        </th>
+    </tr>
+    <tr *ngFor="let todo of todos">
+      <td *ngIf="!todo.editing">{{todo.title}}</td>
+      <td *ngIf="!todo.editing">{{todo.id}}</td>
+      <td><input *ngIf="todo.editing" [(ngModel)]="todo.title" (blur)="saveTodoChanges(todo)"></td>
+      <td><button (click)="toggleEdit(todo)">Edit</button></td>
+      <td><button (click)="deleteTodo(todo)">Delete</button></td>
+      
+    </tr>
+</table>
